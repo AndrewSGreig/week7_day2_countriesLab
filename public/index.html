@@ -25,6 +25,10 @@
         <p> Name: {{selectedCountry.name}} </p>
         <img :src="selectedCountry.flag" height=300 width=300 />
         <p> Population: {{selectedCountry.population}} </p>
+        <p>Neighbours:</p>
+        <ul v-for="country in countries">
+          <li v-if="isBordered(country) === true">{{country.name}} - Population of: {{country.population}}</li>
+        </ul>
         <input type='submit' value='Add to Favourites' v-on:click="addToFavourites" />
         </section>
       </div>

@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     addToFavourites: function(){
       this.favouriteCountries.push(this.selectedCountry.name);
+    },
+    isBordered: function(country){
+      return this.selectedCountry.borders.includes(country.alpha3Code);
     }
   }
   })
