@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src = "js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Total Population</h1>
+      <p> {{totalPopulation}} people in the world! 🌎 </p>
+      <form v-on:submit.prevent="showCountry">
+      <select id="country" v-model="selectedCountry">
+        <option value="" disabled selected></option>
+        <option v-for="country in countries" v-bind:value=country.name>{{country.name}}</option>
+        <input type='submit' value='Select Country' />
+      </form>
+      </div>
+
+  </body>
+</html>
