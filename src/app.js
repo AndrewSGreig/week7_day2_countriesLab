@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     el: '#app',
     data: {
       countries: [],
-      selectedCountry: ""
+      selectedCountry: {
+        name: "",
+        flag: ""
+      },
+      favouriteCountries: []
     },
     computed: {
       totalPopulation: function(){
@@ -21,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchCountries: function(){
         const request = fetch('https://restcountries.eu/rest/v2/all')
         .then(response => response.json())
-        .then(data => this.countries = data)
+        .then(data => this.countries = data);
     },
-    showCountry: function(){
-
+    addToFavourites: function(){
+      this.favouriteCountries.push(this.selectedCountry.name);
     }
   }
   })
