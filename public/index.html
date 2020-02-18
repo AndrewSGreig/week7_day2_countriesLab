@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src = "js/bundle.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <h1>Total Population</h1>
-      <p> {{totalPopulation}} people in the world! 🌎 </p>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src = "js/bundle.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Total Population</h1>
+    <p> {{totalPopulation}} people in the world! 🌎 </p>
 
-      <h2>Favourite Countries</h2>
-      <ul v-for="country in favouriteCountries">
-        <li>{{country}}</li>
-      </ul>
+    <h2>Favourite Countries</h2>
+    <ul v-for="country in favouriteCountries">
+      <li>{{country}}</li>
+    </ul>
 
-      <select id="country" v-model="selectedCountry">
-        <option value="" disabled selected></option>
-        <option v-for="country in countries" v-bind:value="country">{{country.name}}</option>
-      </select>
+    <select id="country" v-model="selectedCountry">
+      <option value="" disabled selected></option>
+      <option v-for="country in countries" v-bind:value="country">{{country.name}}</option>
+    </select>
 
-      <div v-if="selectedCountry.name != ''">
+    <div v-if="selectedCountry.name != ''">
       <section id="selectedCountryInformation">
         <p> Name: {{selectedCountry.name}} </p>
         <img :src="selectedCountry.flag" height=300 width=300 />
@@ -29,11 +29,13 @@
         <ul v-for="country in countries">
           <li v-if="isBordered(country) === true">{{country.name}} - Population of: {{country.population}}</li>
         </ul>
-        <input type='submit' value='Add to Favourites' v-on:click="addToFavourites" />
-        </section>
-      </div>
+        <div v-if="!favouriteCountries.includes(selectedCountry.name)">
+          <input type='submit' value='Add to Favourites' v-on:click="addToFavourites" />
+        </div>
+      </section>
+    </div>
 
-      </div>
+  </div>
 
-  </body>
+</body>
 </html>

@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const request = fetch('https://restcountries.eu/rest/v2/all')
         .then(response => response.json())
         .then(data => this.countries = data);
-    },
-    addToFavourites: function(){
-      this.favouriteCountries.push(this.selectedCountry.name);
-    },
-    isBordered: function(country){
-      return this.selectedCountry.borders.includes(country.alpha3Code);
+      },
+      addToFavourites: function(){
+        this.favouriteCountries.push(this.selectedCountry.name);
+      },
+      isBordered: function(country){
+        return this.selectedCountry.borders.includes(country.alpha3Code);
+      }
     }
-  }
   })
 })
